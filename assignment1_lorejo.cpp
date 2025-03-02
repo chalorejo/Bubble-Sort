@@ -2,6 +2,7 @@
 #include <string>
 using namespace std;
 
+
 void programDescription(){
     cout << "ASSIGNMENT 1: ARRAY FUNCTIONS" << endl;
     cout << "Lorejo, Charisse C. - CMSC 28" << endl;
@@ -23,6 +24,8 @@ int main(){
         cout << "Enter number " << i+1 << ": ";
         cin >> lorejoNum[i];
     }
+
+
     
     return 0;
 }
