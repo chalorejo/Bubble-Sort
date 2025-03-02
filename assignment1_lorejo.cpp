@@ -2,7 +2,14 @@
 #include <string>
 using namespace std;
 
-
+int userInputtedNumbers(int* randomNumbers){
+    cout << "Pleadse enter 10 numbers." << endl;
+    for(int i = 0; i < 10; i++){
+        cout << "Enter number " << i+1 << ": ";
+        cin >> randomNumbers[i];
+    }
+    return randomNumbers[10];
+}
 void programDescription(){
     cout << "ASSIGNMENT 1: ARRAY FUNCTIONS" << endl;
     cout << "Lorejo, Charisse C. - CMSC 28" << endl;
@@ -19,13 +26,10 @@ int main(){
     int lorejoNum[10];
     char lorejoClassification[2][10];
 
-    cout << "Pleadse enter 10 numbers." << endl;
-    for(int i = 0; i < 10; i++){
-        cout << "Enter number " << i+1 << ": ";
-        cin >> lorejoNum[i];
+    lorejoNum[10] = userInputtedNumbers(lorejoNum);
+    for (int i = 0; i < 10; i++){
+        cout << lorejoNum[i] << " ";
     }
-
-
     
     return 0;
 }
