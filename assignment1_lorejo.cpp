@@ -39,45 +39,48 @@ int lorejoSort(int* numbersGiven){                                          //Th
     }
     return numbersGiven[10];
 }
-void positiveOrNegative(int* sortedNumbers, char classification[2][10]){    //This function classifies the numbers as either positive or negative.   
+void positiveOrNegative(int* sortedNumbers, char classification[10][2]){    //This function classifies the numbers as either positive or negative.   
     for(int i = 0; i < 10; i++){
         if (sortedNumbers[i] > 0){
-            classification[0][i] = 'P';
+            classification[i][0] = 'P';
         }
         else if(sortedNumbers[i] < 0){
-            classification[0][i] = 'N';
+            classification[i][0] = 'N';
         }
         else{
-            classification[0][i] = 'Z';
+            classification[i][0] = 'Z';
         }
     }
 }
-void oddOrEven(int* sortedNumbers, char classification[2][10]){             //This function classifies the numbers as either odd or even.
+void oddOrEven(int* sortedNumbers, char classification[10][2]){             //This function classifies the numbers as either odd or even.
     for(int i = 0; i < 10; i++){
         if (sortedNumbers[i] % 2 == 0){
-            classification[1][i] = 'E';
+            classification[i][1] = 'E';
         }
         else{
-            classification[1][i] = 'O';
+            classification[i][1] = 'O';
         }
     }
 }
-void lorejoShowElem(int* numbersSorted, char classification[2][10]){        //This function displays the sorted numbers and their classification.
-    cout << "---------------------------------------------------" << endl;
+void lorejoShowElem(int* numbersSorted, char classification[10][2]){        //This function displays the sorted numbers and their classification.
+    cout << "----------------------------------------------------------------------" << endl;
     cout << "SORTED AND CLASSIFIED NUMBERS" << endl;
-    cout << "---------------------------------------------------" << endl;
-    cout << "Number\tPostive(P) or Negative(N)\tOdd(O) or Even(E)" << endl;
-    cout << "---------------------------------------------------" << endl;
+    cout << "----------------------------------------------------------------------" << endl;
+    cout << "Number\t\tPostive(P) or Negative(N)\tOdd(O) or Even(E)" << endl;
+    cout << "----------------------------------------------------------------------" << endl;
     for (int i = 0; i < 10; i++){
-        cout << numbersSorted[i] << "\t" << classification[0][i] << "\t\t\t" << classification[1][i] << endl;
+        cout << numbersSorted[i] << "\t\t" << classification[i][0] << "\t\t\t\t" << classification[i][1] << endl;
     }
+    cout << "----------------------------------------------------------------------" << endl;
+    cout << "END OF PROGRAM" << endl;
+    cout << "----------------------------------------------------------------------" << endl;
 }
 
 //Main function
 int main(){
     programDescription();
     int lorejoNum[10];
-    char lorejoClassification[2][10];
+    char lorejoClassification[10][2];
 
     lorejoNum[10] = userInputtedNumbers(lorejoNum);     //Calls the function userInputtedNumbers to ask the user for 10 numbers.
 
@@ -86,11 +89,9 @@ int main(){
         cout << lorejoNum[i] << " ";
     }
     cout << endl;
-
     lorejoSort(lorejoNum);                               //Calls the function bubbleSort to sort the numbers in descending order.    
     positiveOrNegative(lorejoNum, lorejoClassification); //Calls the function positiveOrNegative to classify the numbers as either positive or negative.
     oddOrEven(lorejoNum, lorejoClassification);          //Calls the function oddOrEven to classify the numbers as either odd or even.
-    lorejoShowElem(lorejoNum, lorejoClassification);      //Calls the function lorejoShowElem to display the sorted numbers and their classification.
-    
+    lorejoShowElem(lorejoNum, lorejoClassification);     //Calls the function lorejoShowElem to display the sorted numbers and their classification.
     return 0;
 }
